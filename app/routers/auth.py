@@ -25,6 +25,6 @@ def login(user_credentials : OAuth2PasswordRequestForm = Depends(),db : Session 
   if not utils.verify_password(password,user.password):
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail='Invalid Credentials')
   
-  access_token = oauth2.create_access_token({'user_id':str(user.id),'username':str(username)})
+  access_token = oauth2.create_access_token({'user_id':str(user.id)})
 
   return {'token':access_token,'type':'bearer'}
