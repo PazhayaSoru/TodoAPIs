@@ -11,7 +11,6 @@ class UserBase(BaseModel):
 
 class UserCreate(UserBase):
   password : str
-  created_at : datetime
 
 class User(UserBase):
   created_at : datetime
